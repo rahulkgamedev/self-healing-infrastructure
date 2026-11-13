@@ -1,0 +1,11 @@
+groups:
+  - name: nginx-alerts
+    rules:
+      - alert: NginxDown
+        expr: probe_success == 0
+        for: 15s
+        labels:
+          severity: critical
+        annotations:
+          summary: "NGINX is DOWN"
+          description: "NGINX web server is not responding."
